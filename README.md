@@ -16,8 +16,7 @@ Un projet discret et stylé pour capturer des photos automatiquement via webcam.
 ## 🚀 Installation & Exécution
 
 ### 1. Clone ou télécharge le projet
-```
-git clone https://github.com/tonrepo/kyotaka-hackcam
+```git clone https://github.com/tonrepo/kyotaka-hackcam
 cd kyotaka-hackcam```
 
 2. Installe les dépendances
