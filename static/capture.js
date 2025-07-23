@@ -27,3 +27,4 @@ function startCapture() {
       count++;
     }, 2000);
   });
+}
