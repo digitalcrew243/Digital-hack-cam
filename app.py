@@ -25,4 +25,4 @@ if __name__ == '__main__':
     public_url = ngrok.connect(port).public_url
     print(f"🌐 Tunnel public ngrok: {public_url}")
 
-    app.run(port=port
+    app.run(port=port)
