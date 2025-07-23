@@ -21,7 +21,7 @@ Un projet discret et stylé pour capturer des photos automatiquement via webcam.
 ```bash
 git clone https://github.com/tonrepo/kyotaka-hackcam
 cd kyotaka-hackcam
-
+```
 2. Installe les dépendances
 
 pip install flask
