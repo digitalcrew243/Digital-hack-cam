@@ -19,18 +19,18 @@ Un projet discret et stylé pour capturer des photos automatiquement via webcam.
 ### 1. Clone ou télécharge le projet
 
 ```bash
-git clone https://github.com/tonrepo/kyotaka-hackcam
-cd kyotaka-hackcam
+git clone https://github.com/Dan-jersey/KYOTAKA-HACK-CAM
+cd KYOTAKA-HACK-CAM
 ```
 2. Installe les dépendances
-
+```bash
 pip install flask
 pkg install cloudflared
-
+```
 3. Lance l’application
-
+```bash
 python app.py
-
+```
 
 ---
 
