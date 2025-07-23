@@ -30,7 +30,6 @@ pkg install cloudflared```
 ```python app.py```
 
 
----
 
 💀 Auteurs
 
