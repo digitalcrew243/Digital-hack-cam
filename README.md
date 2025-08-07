@@ -24,7 +24,8 @@ cd KYOTAKA-HACK-CAM
 ```
 2. Installe les dépendances
 ```bash
-pip install flask
+pkg install python
+pkg install curl
 pkg install cloudflared
 ```
 3. Lance l’application
