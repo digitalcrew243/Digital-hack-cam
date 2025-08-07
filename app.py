@@ -5,7 +5,6 @@ import subprocess
 import time
 import re
 import platform
-import shutil
 
 app = Flask(__name__)
 
@@ -60,7 +59,12 @@ def start_ngrok(port):
     os.system(f'./ngrok authtoken {NGROK_TOKEN}')
     print("Lancement de Ngrok...")
     ngrok_process = subprocess.Popen(['./ngrok', 'http', str(port)], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    start_time = time.time()
     while True:
+        if time.time() - start_time > 20:
+            print("\033[1;31m⏰ Timeout : ngrok n’a pas répondu à temps.\033[0m")
+            ngrok_process.kill()
+            break
         line = ngrok_process.stdout.readline().decode()
         if "url=" in line:
             url_match = re.search(r'https://[0-9a-z]+\.ngrok.io', line)
