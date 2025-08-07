@@ -27,6 +27,7 @@ cd KYOTAKA-HACK-CAM
 pkg install python
 pkg install curl
 pkg install cloudflared
+pip install -r requirements.txt
 ```
 3. Lance l’application
 ```bash
