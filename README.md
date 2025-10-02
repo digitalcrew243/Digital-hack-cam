@@ -39,3 +39,6 @@ pkg install cloudflared -y
 
 # Installer dépendances Python du projet
 pip install -r requirements.txt
+
+# lancement de l'outil
+python app.py
