@@ -32,6 +32,9 @@
 # Mettre à jour le système
 pkg update && pkg upgrade -y
 
+# cloner le dépôt
+git clone https://github.com/digitalcrew243/Digital-hack-cam
+
 # Installer dépendances système
 pkg install python -y
 pkg install curl -y
