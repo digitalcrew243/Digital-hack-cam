@@ -1,33 +1,41 @@
-#!/usr/bin/env bash
-cat > README.md <<'EOF'
 # Digital Crew 243 — HackCam
 
 ![Visuel du projet](https://files.catbox.moe/2vu6pj.jpg)
 
-**Définition**  
-Digital Crew 243 — HackCam est un prototype serveur léger conçu pour recevoir, décoder et stocker des images envoyées par des clients via un endpoint HTTP.
+## Présentation
+**Digital Crew 243 — HackCam** est un prototype d’outil serveur léger conçu pour recevoir, décoder et stocker des images envoyées par des clients. L’application expose un endpoint HTTP (`/upload`) qui accepte des payloads JSON contenant une image encodée en Base64 et un identifiant de capture. Les fichiers sont persistés localement dans un répertoire configurable pour post-traitement, analyse ou ingestion.
 
-**Fonctions principales**  
-- Endpoint `/upload` acceptant un JSON contenant une image (base64) et un identifiant.  
-- Persistance locale des captures dans `/sdcard/digitalcrew243_HackCam`.  
-- Détection d'architecture et gestion des binaires de tunnel (ngrok/cloudflared).  
-- Récupération et affichage de l'URL publique fournie par le tunnel.
+> Ce projet est prévu pour un usage en laboratoire et pour des tests de sécurité autorisés. Toute utilisation sur des systèmes tiers sans autorisation explicite est interdite et peut être illégale.
 
-**Architecture & flux**  
-1. Client encode l'image en base64 et POSTe au serveur.  
-2. Serveur décode et sauvegarde `capture_<n>.jpg`.  
-3. Opérateur lance un tunnel pour exposer `http://localhost:5000` si nécessaire.  
-4. Captures disponibles localement pour traitement.
+---
 
-**Aspects techniques**  
-- Séparation claire entre API (Flask) et gestion des tunnels.  
-- Support multi-architecture pour le téléchargement des binaires.  
-- Timeouts et nettoyage des processus pour robustesse opérationnelle.
+## Fonctionnalités clés
+- Endpoint HTTP `POST /upload` (JSON) pour réception d’images Base64.  
+- Stockage normalisé des captures sous la forme `capture_<n>.jpg` dans un répertoire configurable (`/sdcard/digitalcrew243_HackCam` par défaut).  
+- Support pour exposer l’instance locale via des tunnels (Cloudflared / Ngrok).  
+- Détection automatique de l’architecture pour le binaire ngrok (ARM/x86_64/386).  
+- Timeouts et nettoyage de processus pour éviter les processus zombies.
 
-**Cas d'usage**  
-- Simulations en laboratoire et validation de pipelines de collecte d'images.  
-- Tests contrôlés pour procédures de détection et forensics.
+---
 
-Digital Crew 243 — HackCam
-EOF
-echo "README.md créé."
+## Exigences
+- Python 3.8+  
+- Flask  
+- `curl` (optionnel)  
+- `cloudflared` (si vous souhaitez utiliser le tunnel Cloudflare)  
+- (Optionnel) `ngrok` si vous préférez ngrok
+
+---
+
+## Installation (Termux / Linux — rapide)
+```bash
+# Mettre à jour le système
+pkg update && pkg upgrade -y
+
+# Installer dépendances système
+pkg install python -y
+pkg install curl -y
+pkg install cloudflared -y
+
+# Installer dépendances Python du projet
+pip install -r requirements.txt
